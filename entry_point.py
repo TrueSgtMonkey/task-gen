@@ -19,8 +19,10 @@ def main():
                 if task.find(":") == -1:
                     task = inpoot + ":"
                     continue
-
-            task_contents = get_task_contents_from_str(inpoot)
+                
+                task_contents = get_task_contents_from_str(inpoot)
+            else:
+                task_contents = inpoot
             if not(task in __global_task_dict):
                 __global_task_dict[task] = task_contents
             else:
