@@ -1,7 +1,8 @@
-from save_file_handler import __global_task_dict
+from save_file_handler import TaskGlobals
 
 def main():
-    inpoot = ""
+    inpoot = input("save file: ")
+    TaskGlobals.set_file_name(inpoot)
     task = ""
     task_contents = ""
     print("DIRECTIONS:")
@@ -23,10 +24,10 @@ def main():
                 task_contents = get_task_contents_from_str(inpoot)
             else:
                 task_contents = inpoot
-            if not(task in __global_task_dict):
-                __global_task_dict[task] = task_contents
+            if not(task in TaskGlobals.task_dict):
+                TaskGlobals.task_dict[task] = task_contents
             else:
-                __global_task_dict[task] += "\n" + (" " * len(task)) + task_contents
+                TaskGlobals.task_dict[task] += "\n" + (" " * len(task)) + task_contents
         else:
             task = ""
 
